@@ -66,7 +66,7 @@ export default {
   },
   created: function () {
     console.log("Establishing connection to Websocket Server...");
-    this.connection = new WebSocket("ws://localhost:8080/greeter");
+    this.connection = new WebSocket("ws://localhost:8080/echo");
 
     this.connection.onopen = function (event) {
       console.log(event);
