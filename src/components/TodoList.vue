@@ -65,8 +65,21 @@ export default {
     }
   },
   created: function () {
-    console.log("Establishing connection to Websocket Server...");
-    this.connection = new WebSocket("ws://localhost:8080/echo");
+    
+    const websocketEchoService = 'echo';
+
+    // Server - Local server (for testing purpose only)
+    let serverAddress = 'localhost:8080';
+
+    // Server - Heroku App (hosted on Heroku0 cloud)
+    serverAddress = 'echo-websocket-akkahttp-java.herokuapp.com';
+    
+    // Build websocket-endpoint uri
+    const echoWebsocketEndpointUri = 'ws://' + serverAddress + '/' + websocketEchoService;
+
+    // Connect to websocket endpoint
+    console.log('Establishing connection with the Websocket Server(' + echoWebsocketEndpointUri + ')...');
+    this.connection = new WebSocket(echoWebsocketEndpointUri);
 
     this.connection.onopen = function (event) {
       console.log(event);
