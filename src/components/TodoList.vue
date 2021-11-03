@@ -75,7 +75,7 @@ export default {
     serverAddress = 'echo-websocket-akkahttp-java.herokuapp.com';
     
     // Build websocket-endpoint uri
-    const echoWebsocketEndpointUri = 'ws://' + serverAddress + '/' + websocketEchoService;
+    const echoWebsocketEndpointUri = 'wss://' + serverAddress + '/' + websocketEchoService;
 
     // Connect to websocket endpoint
     console.log('Establishing connection with the Websocket Server(' + echoWebsocketEndpointUri + ')...');
